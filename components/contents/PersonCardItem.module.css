@@ -1,9 +1,10 @@
 .item {
-  margin: 1rem 0;
+  margin: 1rem 2rem;
+  width: 25%;
 }
 
 .image {
-  width: 60%;
+  width: 100%;
   height: auto;
   overflow: hidden;
   border-top-right-radius: 6px;
@@ -33,8 +34,8 @@
 .actions button {
   font: inherit;
   cursor: pointer;
-  color: #77002e;
-  border: 1px solid #77002e;
+  color: #1613b3;
+  border: 1px solid #4e5180;
   background-color: transparent;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
@@ -42,5 +43,5 @@
 
 .actions button:hover,
 .actions button:active {
-  background-color: #ffe2ed;
+  background-color: #cedae7;
 }

@@ -8,12 +8,12 @@ function PersonCardItem(props) {
   const showDetailsHandler = () => {
     router.push("/" + props.id);
   };
-  console.log(props.id);
+
   return (
     <li className={classes.item}>
       <Card>
         <div className={classes.image}>
-          <img src={props.image} alt={"Not Found"} />
+          <img src="logo.png" alt={"Not Found"} />
         </div>
         <div className={classes.content}>
           <h3>{props.name}</h3>

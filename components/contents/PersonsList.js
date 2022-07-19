@@ -10,7 +10,7 @@ function PersonsList(props) {
           id={item.id}
           name={item.name}
           jobPosition={item.description}
-          image={item.image}
+          image={"logo.png"}
           likes={item.liked}
         />
       ))}

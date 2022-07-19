@@ -29,10 +29,9 @@ export const getStaticProps = async (context) => {
 };
 
 function PersonDetails({ person }) {
-  console.log(person);
   return (
     <PersonDetail
-      avatar={person.image}
+      avatar={"logo.png"}
       name={person.name}
       position={person.description}
       location={person.location_id}
