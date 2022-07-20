@@ -20,7 +20,6 @@ function FeedbackForm(props) {
       email: enteredEmail,
       message: enteredMessage,
     };
-
     props.onAddFeedback(feedbackData);
   }
 
@@ -29,11 +28,23 @@ function FeedbackForm(props) {
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor="name">Name</label>
-          <input type="text" required id="name" ref={nameInputRef} />
+          <input
+            type="text"
+            required
+            id="name"
+            ref={nameInputRef}
+            name="name"
+          />
         </div>
         <div className={classes.control}>
           <label htmlFor="email">E-mail address</label>
-          <input type="text" required id="emailAddress" ref={emailInputRef} />
+          <input
+            type="email"
+            required
+            id="emailAddress"
+            ref={emailInputRef}
+            name="email"
+          />
         </div>
         <div className={classes.control}>
           <label htmlFor="message">Message</label>
@@ -41,6 +52,7 @@ function FeedbackForm(props) {
             id="message"
             required
             rows="5"
+            name="message"
             ref={messageInputRef}
           ></textarea>
         </div>

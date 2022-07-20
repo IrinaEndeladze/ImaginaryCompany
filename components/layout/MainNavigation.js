@@ -26,7 +26,7 @@ function MainNavigation() {
           </ul>
         </nav>
       </header>
-      <footer className={classes.footer}>hello</footer>
+      <footer className={classes.footer}>@ Irina Endelazde</footer>
     </>
   );
 }
