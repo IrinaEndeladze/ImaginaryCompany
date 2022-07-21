@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { HomePageContent } from "../components/contents/HomePage";
 
 function HomePage() {
   return (
@@ -6,8 +7,7 @@ function HomePage() {
       <Head>
         <title>Home Page</title>
       </Head>
-      <h1> Everything is possible, if you never give up</h1>
-      <img src="logo.png" alt={"logo"} />;
+      <HomePageContent />
     </div>
   );
 }

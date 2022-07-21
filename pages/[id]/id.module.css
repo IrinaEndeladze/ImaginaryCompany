@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.likeButton {
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.likeButton button {
+  font: inherit;
+  cursor: pointer;
+  color: #0c0a80;
+  border: 1px solid #696fc2;
+  background-color: transparent;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  width: 270px;
+}
+
+.likeButton button:hover,
+.likeButton button:active {
+  background-color: #52a1f7;
+}

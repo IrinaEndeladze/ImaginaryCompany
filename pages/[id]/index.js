@@ -1,5 +1,8 @@
 import PersonDetail from "../../components/contents/PersonDetail";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Head from "next/head";
+import classes from "./id.module.css";
+
 export const getStaticPaths = async () => {
   const res = await fetch(
     "https://test-task-api-optimo.herokuapp.com/employee"
@@ -29,23 +32,19 @@ export const getStaticProps = async (context) => {
 };
 
 function PersonDetails({ person }) {
-  const [like, setLike] = useState(false);
   const [numOfLikes, setNumOfLikes] = useState(person.liked);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  useEffect(() => {
-    const data = { id: person.id, liked: numOfLikes };
-    const requestOptions = {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-
-    console.log(requestOptions);
-    fetch(
+  const updateLike = async () => {
+    const response = await fetch(
       "https://test-task-api-optimo.herokuapp.com/employee/" + person.id,
-      { mode: "no-cors" },
-      requestOptions
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...person, liked: numOfLikes }),
+      }
     )
       .then(async (response) => {
         const data = await response.json();
@@ -53,33 +52,38 @@ function PersonDetails({ person }) {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-
         setNumOfLikes(data.liked);
       })
       .catch((error) => {
         setErrorMessage(error);
         console.error("There was an error!", error);
       });
-  }, []);
+  };
 
   const handleLike = () => {
     setNumOfLikes(numOfLikes + 1);
-    setLike(true);
+    updateLike();
   };
-  console.log(numOfLikes);
 
-  console.log(person);
   return (
-    <PersonDetail
-      handleLike={handleLike}
-      avatar={"logo.png"}
-      id={person.id}
-      name={person.name}
-      position={person.description}
-      location={person.location_id}
-      likes={person.liked || numOfLikes}
-      bio={"descripsjdbvj jsdbfjbsdfj jsdbfjsbd"}
-    />
+    <div className={classes.container}>
+      <Head>
+        <title>Person Detail Page</title>
+      </Head>
+      <PersonDetail
+        handleLike={handleLike}
+        avatar={"logo.png"}
+        id={person.id}
+        name={person.name}
+        position={person.description}
+        location={person.location_id}
+        likes={numOfLikes}
+        bio={"descripsjdbvj jsdbfjbsdfj jsdbfjsbd"}
+      />
+      <div className={classes.likeButton}>
+        <button onClick={handleLike}>like</button>
+      </div>
+    </div>
   );
 }
 export default PersonDetails;

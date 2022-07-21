@@ -1,6 +1,4 @@
 import { useRef } from "react";
-
-import Card from "../ui/Card";
 import classes from "./FeedbackForm.module.css";
 
 function FeedbackForm(props) {
@@ -24,7 +22,7 @@ function FeedbackForm(props) {
   }
 
   return (
-    <Card>
+    <div className={classes.feedbackContainer}>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor="name">Name</label>
@@ -60,7 +58,7 @@ function FeedbackForm(props) {
           <button>Add Feedback</button>
         </div>
       </form>
-    </Card>
+    </div>
   );
 }
 

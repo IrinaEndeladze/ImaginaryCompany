@@ -3,6 +3,7 @@ import Head from "next/head";
 import JobDropDown from "../../components/contents/JobDropDown";
 import LocationDropDown from "../../components/contents/LocationDropDown";
 import PersonsList from "../../components/contents/PersonsList";
+import classes from "./index.module.css";
 
 export const getStaticProps = async () => {
   const res = await fetch(
@@ -62,13 +63,12 @@ function PersonsPage({ employee }) {
     setLocation(locationFilterData.map((item) => item.location_id));
   }, [filterData, locationFilterData]);
 
-  console.log(employee);
   return (
     <div>
       <Head>
         <title>Person Page</title>
       </Head>
-      <div>
+      <div className={classes.dropDownContainer}>
         <JobDropDown job={job} jobHandleChange={jobHandleChange} />
         <LocationDropDown
           location={location}

@@ -11,7 +11,7 @@ function PersonCardItem(props) {
 
   return (
     <li className={classes.item}>
-      <Card>
+      <Card style={props.className} data={props.data} liked={props.likes}>
         <div className={classes.image}>
           <img src="logo.png" alt={"Not Found"} />
         </div>

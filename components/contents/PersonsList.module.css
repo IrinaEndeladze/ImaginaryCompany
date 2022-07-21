@@ -8,3 +8,8 @@
   gap: 20px;
   flex-wrap: wrap;
 }
+.mostLiked {
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(67, 92, 235, 0.2);
+  background-color: lightgreen;
+}
